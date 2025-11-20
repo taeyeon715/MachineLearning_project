@@ -46,6 +46,9 @@ MachineLearning_project/
 - **시각화**: `matplotlib`, `plotly`
 
 ### 사용 모델
+※ MLP, SVM, Randaomforest, LightGBM, XGBoost, catBoost 모델 사용 및 5가지 앙상블 모델을 사용했지만 중간에 프로젝트 관리 실패로 인한 코드 유실 발생..
+
+
 1. **CatBoost Classifier**
    - 범주형 변수를 자동으로 처리
    - GridSearchCV를 통한 하이퍼파라미터 튜닝
