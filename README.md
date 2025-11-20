@@ -46,7 +46,7 @@ MachineLearning_project/
 - **시각화**: `matplotlib`, `plotly`
 
 ### 사용 모델
-※ MLP, SVM, Randaomforest, LightGBM, XGBoost, catBoost 모델 사용 및 5가지 앙상블 모델을 사용했지만 중간에 프로젝트 관리 실패로 인한 코드 유실 발생..
+※ MLP, SVM, Randaomforest, LightGBM, XGBoost, catBoost 모델 사용 및 5가지 앙상블 모델을 사용했지만 프로젝트 종료 후 로컬 환경에서 코드 유실. -> 프로젝트의 전체적인 흐름과 중간 과정들을 살펴보려면 최종발표 ppt를 보는 것이 참고에 도움 될듯.
 
 
 1. **CatBoost Classifier**
@@ -60,6 +60,12 @@ MachineLearning_project/
 ## 🔍 주요 분석 과정
 
 ### 1. 데이터 전처리
+-Name과 Descition에 결측치 존재. Name열에 존재하는 결측치는 NoName으로 대체
+-입양 수수료인 Fee에 해당하는 변수는 이상치 제거 후 10으로 나눔. 
+-color은 검정, 갈색, 크림, 회색, 금색, 하얀색, 노랑색 7가지 색상 존재. oneHot인코딩을 진행. 여러 색이 섞인 강아지나 고양이의 경우 한 인스턴스 안에 모든 색상이 다 적혀있어 최대 4가지 색상이 적힌 강아지가 있었음.
+-Quantity는 한번에 입양 가능한 동물 수를 뜻함. 값이 1이 아닌 row는 삭제.
+-MetaData 활용 : 'PhotoAmt에 값이 양수로 표시되어 있으면 데이터에 사진도 첨부되어 있음. 사진의 유무가 입양에 가장 큰 영향을 미친다고 생각했기에 이 데이터도 어떻게든 활용하기로 결정.
+
 ```python
 # 개와 고양이 데이터 분리
 dog_df = df[df['Type'] == 1]
